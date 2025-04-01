@@ -6,7 +6,31 @@
         xmlns:local="clr-namespace:Schrauben_Schutte"
         mc:Ignorable="d"
         Title="MainWindow" Height="450" Width="800">
-    <Grid>
-        
-    </Grid>
+    <Window.Resources>
+        <local:ViewModel x:Key="vm1"></local:ViewModel>
+    </Window.Resources>
+    <StackPanel DataContext="{StaticResource vm1}">
+        <Label Template="{StaticResource header}"/>
+        <Grid>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition></ColumnDefinition>
+                <ColumnDefinition></ColumnDefinition>
+            </Grid.ColumnDefinitions>
+        </Grid>
+        <ListView Name="lv1" Grid.Column="0">
+            <ListView.DataContext>
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition></ColumnDefinition>
+                        <ColumnDefinition></ColumnDefinition>
+                        <ColumnDefinition></ColumnDefinition>
+                    </Grid.ColumnDefinitions>
+                    <Label Grid.Column="0" Name="lblAnz1" Content="{Binding }"></Label>
+                </Grid>
+            </ListView.DataContext>
+
+            <Grid Grid.Column="1">
+            </Grid>
+        </ListView>
+    </StackPanel>
 </Window>

@@ -4,6 +4,9 @@
              xmlns:local="clr-namespace:Schrauben_Schutte"
              StartupUri="MainWindow.xaml">
     <Application.Resources>
-         
+        <ControlTemplate x:Key="header">
+            <Label Width="800" Content="Schrauben Schutte" FontFamily="Arial" FontSize="35px" FontWeight="Bold"
+                   HorizontalContentAlignment="Center" Background="LightBlue"></Label>
+        </ControlTemplate>
     </Application.Resources>
 </Application>
