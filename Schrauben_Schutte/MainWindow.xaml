@@ -9,7 +9,7 @@
     <Window.Resources>
         <local:ViewModel x:Key="vm1"></local:ViewModel>
     </Window.Resources>
-    <StackPanel DataContext="{StaticResource vm1}">
+    <StackPanel DataContext="{Binding Source={StaticResource vm1}}">
         <Label Template="{StaticResource header}"/>
         <Grid>
             <Grid.ColumnDefinitions>
@@ -17,20 +17,24 @@
                 <ColumnDefinition></ColumnDefinition>
             </Grid.ColumnDefinitions>
         </Grid>
-        <ListView Name="lv1" Grid.Column="0">
-            <ListView.DataContext>
-                <Grid>
-                    <Grid.ColumnDefinitions>
-                        <ColumnDefinition></ColumnDefinition>
-                        <ColumnDefinition></ColumnDefinition>
-                        <ColumnDefinition></ColumnDefinition>
-                    </Grid.ColumnDefinitions>
-                    <Label Grid.Column="0" Name="lblAnz1" Content="{Binding }"></Label>
-                </Grid>
-            </ListView.DataContext>
-
-            <Grid Grid.Column="1">
-            </Grid>
+        <ListView Name="lv1" Grid.Column="0" ItemsSource="{Binding getListe}">
+            <ListView.ItemTemplate>
+                <DataTemplate>
+                    <Grid>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition></ColumnDefinition>
+                            <ColumnDefinition></ColumnDefinition>
+                            <ColumnDefinition></ColumnDefinition>
+                        </Grid.ColumnDefinitions>
+                        <Label Grid.Column="0" Content="{Binding Path= GetName}"/>
+                        <Label Grid.Column="1" Content="{Binding Path= GetArt}"/>
+                        <Label Grid.Column="2" Content="{Binding Path= GetLaenge}"/>
+                    </Grid>
+                </DataTemplate>
+            </ListView.ItemTemplate>
         </ListView>
+        <Grid Grid.Column="1">
+
+        </Grid>
     </StackPanel>
 </Window>

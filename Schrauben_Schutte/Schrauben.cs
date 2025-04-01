@@ -19,31 +19,31 @@ namespace Schrauben_Schutte
         {
      
         }
-        public string getName
+        public string GetName
         {
             get { return schraubenName; }
         }
-        public string getArt
+        public string GetArt
         {
             get { return schraubenArt; }
         }
-        public string getLaenge
+        public string GetLaenge
         {
             get { return schraubenLaenge; }
         }
-        public double getMasse
+        public double GetMasse
         {
             get { return schraubenMasse; }
         }
-        public string getBild
+        public string GetBild
         {
             get { return schraubenBild; }
         }
-        public double getPreis
+        public double GetPreis
         {
             get { return schraubenPreis; }
         }
-        public string getVerdrillung
+        public string GetVerdrillung
         {
             get { return schraubenVerdrillung; }
         }
