@@ -17,7 +17,7 @@ namespace Schrauben_Schutte
         protected string schraubenVerdrillung;
         protected Schrauben()
         {
-     
+      
         }
         public string GetName
         {
