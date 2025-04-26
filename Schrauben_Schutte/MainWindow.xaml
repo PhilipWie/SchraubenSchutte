@@ -5,55 +5,84 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Schrauben_Schutte"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800"
+        Title="MainWindow" Height="550" Width="900"
         ResizeMode="NoResize">
     <Window.Resources>
         <local:ViewModel x:Key="vm1"></local:ViewModel>
     </Window.Resources>
+    
     <StackPanel DataContext="{Binding Source={StaticResource vm1}}">
         <StackPanel.Background>
             <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
                 <GradientStop Color="Black"/>
                 <GradientStop Color="#FFF1EAEA" Offset="1"/>
-                <GradientStop Color="#FE7C5555" Offset="0"/>
-                <GradientStop Color="#FED69393" Offset="0.286"/>
-                <GradientStop Color="#FECCADAD" Offset="0.695"/>
+                <GradientStop Color="#FE55767C" Offset="0"/>
+                <GradientStop Color="#FE93C3D6" Offset="0.286"/>
+                <GradientStop Color="#FEADC9CC" Offset="0.695"/>
             </LinearGradientBrush>
         </StackPanel.Background>
 
         <Label Template="{StaticResource header}"/>
         <Grid>
             <Grid.ColumnDefinitions>
-                <ColumnDefinition Width="350"></ColumnDefinition>
-                <ColumnDefinition Width="450"></ColumnDefinition>
+                <ColumnDefinition Width="400"></ColumnDefinition>
+                <ColumnDefinition Width="500"></ColumnDefinition>
             </Grid.ColumnDefinitions>
-
-            <Border Grid.Column="0" Margin="10" Background="White" HorizontalAlignment="Left" Padding="5" 
+            <Grid.RowDefinitions>
+                <RowDefinition Height="320"></RowDefinition>
+                <RowDefinition Height="30"></RowDefinition>
+            </Grid.RowDefinitions>
+            <Border HorizontalAlignment="Center"  Grid.Row="0" Grid.Column="0" Margin="0,30,0,0" Background="White" Padding="5" 
                 BorderThickness="1px" BorderBrush="Black" CornerRadius="10"  Width="300px" Opacity="0.6" Cursor="Hand">
                 <ListView Background="LightGray" Width="350" Name="lv1" Grid.Column="0"  ItemsSource="{Binding getListe}">
-                    <ListView.ItemTemplate>
-                        <DataTemplate>
-                            <Grid>
+                    <ListView.ItemTemplate >
+                        <DataTemplate >
+                            <Grid >
                                 <Grid.ColumnDefinitions>
                                     <ColumnDefinition></ColumnDefinition>
                                     <ColumnDefinition></ColumnDefinition>
                                     <ColumnDefinition></ColumnDefinition>
                                 </Grid.ColumnDefinitions>
 
-                                <Label Grid.Column="0" FontSize="14" Content="{Binding Path= GetName}"/>
-                                <Label Grid.Column="1" FontSize="14" Content="{Binding Path= GetArt}"/>
-                                <Label Grid.Column="2" FontSize="14" Content="{Binding Path= GetLaenge}"/>
+                                <Label Grid.Column="0" Grid.Row="0" FontSize="14" Content="{Binding Path= GetName}"/>
+                                <Label Grid.Column="1" Grid.Row="0" FontSize="14" Content="{Binding Path= GetArt}"/>
+                                <Label Grid.Column="2" Grid.Row="0" FontSize="14" Content="{Binding Path= GetLaenge}"/>
 
                             </Grid>
                         </DataTemplate>
                     </ListView.ItemTemplate>
                 </ListView>
             </Border>
-            <StackPanel Grid.Column="1" HorizontalAlignment="Center">
-                <Label Template="{StaticResource header2}"/>
-                <Label Grid.Column="0" Grid.Row="0" Content="{Binding ElementName=lv1, Path=SelectedItem.GetName}"></Label>
-                <Label Grid.Column="1" Grid.Row="0" Content="{Binding ElementName=lv1, Path=SelectedItem.GetMasse}"></Label>
-            </StackPanel>
+            <Border HorizontalAlignment="Center" Grid.Row="0" Grid.Column="1" Margin="0,30,0,0" Background="White" Padding="5" 
+                BorderThickness="1px" BorderBrush="Black" CornerRadius="10"  Width="300px" Opacity="0.6" Cursor="Hand">
+                <StackPanel Grid.Row="0" x:Name="sp_infos" Grid.Column="1" HorizontalAlignment="Center" Background="#FF74A1C9">
+                    <Label Template="{StaticResource header2}"/>
+                    <Label HorizontalContentAlignment="Center" Grid.Column="0" Grid.Row="0" Content= "{Binding ElementName=lv1, Path=SelectedItem.GetName}"></Label>
+                    <Label HorizontalContentAlignment="Center" Grid.Column="1" Grid.Row="0" Content="{Binding ElementName=lv1, Path=SelectedItem.GetMasse}"></Label>
+                </StackPanel>
+            </Border>
         </Grid>
+
+        <StackPanel Grid.Row="1" Orientation="Horizontal" VerticalAlignment="Center" HorizontalAlignment="Center">
+            <Border Padding="4" Background="White" Margin="0px 0px 10px 0px" CornerRadius="8" BorderThickness="1px" BorderBrush="Black" ClipToBounds="False">
+                <Border.Effect>
+                    <DropShadowEffect/>
+                </Border.Effect>
+                <Button Content="Speichern" Width="110px" Height="40px" FontSize="18" FontWeight="Bold" Background="#FFD4DDE5"></Button>
+            </Border>
+
+            <Border Padding="4" Background="White" Margin="0px 0px 10px 0px" CornerRadius="8" BorderThickness="1px" BorderBrush="Black" ClipToBounds="False">
+                <Border.Effect>
+                    <DropShadowEffect/>
+                </Border.Effect>
+                <Button Content="Löschen" Width="110px" Height="40px" FontSize="18" FontWeight="Bold" Background="#FFD4DDE5"></Button>
+            </Border>
+            <Border Padding="4" Background="White" Margin="0px 0px 10px 0px" CornerRadius="8" BorderThickness="1px" BorderBrush="Black" ClipToBounds="False">
+                <Border.Effect>
+                    <DropShadowEffect/>
+                </Border.Effect>
+                <Button Content="Hinzufügen" Width="110px" Height="40px" FontSize="18" FontWeight="Bold" Background="#FFD4DDE5"></Button>
+            </Border>
+        </StackPanel>
     </StackPanel>
 </Window>

@@ -5,14 +5,14 @@
              StartupUri="MainWindow.xaml">
     <Application.Resources>
         <ControlTemplate x:Key="header">
-            <Label x:Name="lbl_header" Width="800" Padding="15" Content="Schrauben Schutte" FontFamily="Arial" FontSize="45px" FontWeight="Bold"
-                   HorizontalContentAlignment="Center" Background="#FF796464" Opacity="0.7"></Label>
+            <Label Height="80px" x:Name="lbl_header" Width="900" Padding="15" Content="Schrauben Schutte GmbH" FontFamily="Arial" FontSize="45px" FontWeight="Bold"
+                   HorizontalContentAlignment="Center" Background="#FF6DB1C8" Opacity="0.7"></Label>
         </ControlTemplate>
 
         <ControlTemplate x:Key="header2">
-            <Label HorizontalAlignment="Center" x:Name="lbl_header2" Width="420" Padding="15" Margin="0,10,10,0"
+            <Label HorizontalAlignment="Center" x:Name="lbl_header2" Width="420" Padding="15"
                    Content="Informationen:" FontFamily="Arial" FontSize="22px" FontWeight="Bold"
-                   HorizontalContentAlignment="Center" Background="LightBlue" Opacity="0.5"></Label>
+                   HorizontalContentAlignment="Center" Background="LightBlue" Opacity="0.7"></Label>
         </ControlTemplate>
     </Application.Resources>
 </Application>
