@@ -9,12 +9,14 @@ namespace Schrauben_Schutte
     class Schrauben
     {
         protected string schraubenName;
-        protected string schraubenArt;
+        protected int schraubenNr;
+        protected string schraubenMaterial;
         protected string schraubenLaenge;
         protected double schraubenMasse;
         protected string schraubenBild;
         protected double schraubenPreis;
         protected string schraubenVerdrillung;
+        protected double schraubenDurchmesser;
         protected Schrauben()
         {
       
@@ -23,9 +25,13 @@ namespace Schrauben_Schutte
         {
             get { return schraubenName; }
         }
-        public string GetArt
+        public int GetNr
         {
-            get { return schraubenArt; }
+            get { return schraubenNr; }
+        }
+        public string GetMaterial
+        {
+            get { return schraubenMaterial; }
         }
         public string GetLaenge
         {
@@ -47,7 +53,10 @@ namespace Schrauben_Schutte
         {
             get { return schraubenVerdrillung; }
         }
-
+        public double GetDurchmesser
+        {
+            get { return schraubenDurchmesser; }
+        } 
 
     }
 }

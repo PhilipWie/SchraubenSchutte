@@ -45,8 +45,7 @@
                                 </Grid.ColumnDefinitions>
 
                                 <Label Grid.Column="0" Grid.Row="0" FontSize="14" Content="{Binding Path= GetName}"/>
-                                <Label Grid.Column="1" Grid.Row="0" FontSize="14" Content="{Binding Path= GetArt}"/>
-                                <Label Grid.Column="2" Grid.Row="0" FontSize="14" Content="{Binding Path= GetLaenge}"/>
+                                <Label Grid.Column="1" Grid.Row="0" FontSize="14" Content="{Binding Path= GetNr}"/>
 
                             </Grid>
                         </DataTemplate>
@@ -57,8 +56,43 @@
                 BorderThickness="1px" BorderBrush="Black" CornerRadius="10"  Width="300px" Opacity="0.6" Cursor="Hand">
                 <StackPanel Grid.Row="0" x:Name="sp_infos" Grid.Column="1" HorizontalAlignment="Center" Background="#FF74A1C9">
                     <Label Template="{StaticResource header2}"/>
-                    <Label HorizontalContentAlignment="Center" Grid.Column="0" Grid.Row="0" Content= "{Binding ElementName=lv1, Path=SelectedItem.GetName}"></Label>
-                    <Label HorizontalContentAlignment="Center" Grid.Column="1" Grid.Row="0" Content="{Binding ElementName=lv1, Path=SelectedItem.GetMasse}"></Label>
+                    <!-- Grid erstellen und Informationen in 2 colums einteilen wie Attribut: Attribut value -->
+                    <Grid>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition></ColumnDefinition>
+                            <ColumnDefinition></ColumnDefinition>
+                            
+                        </Grid.ColumnDefinitions>
+                        <Grid.RowDefinitions>
+                            <RowDefinition></RowDefinition>
+                            <RowDefinition></RowDefinition>
+                            <RowDefinition></RowDefinition>
+                            <RowDefinition></RowDefinition>
+                            <RowDefinition></RowDefinition>
+                            <RowDefinition></RowDefinition>
+                            <RowDefinition></RowDefinition>
+                            <RowDefinition></RowDefinition>
+                        </Grid.RowDefinitions>
+                        <Label Content="Bezeichnung:" Grid.Column="0" Grid.Row="0"></Label>
+                        <Label Grid.Column="1" Grid.Row="0" HorizontalContentAlignment="Center" FontWeight="Bold" 
+                               Content= "{Binding ElementName=lv1, Path=SelectedItem.GetName}"></Label>
+                        <Label Content="Material:" Grid.Row="1" Grid.Column="0"></Label>
+                        <Label Grid.Column="1" Grid.Row="1" HorizontalContentAlignment="Center" FontWeight="Bold" 
+                               Content="{Binding ElementName=lv1, Path=SelectedItem.GetMaterial}"></Label>
+                        <Label Content="Laenge:" Grid.Row="2" Grid.Column="0"></Label>
+                        <Label Grid.Column="1" Grid.Row="2" HorizontalContentAlignment="Center" FontWeight="Bold" 
+                               Content="{Binding ElementName=lv1, Path=SelectedItem.GetLaenge}"></Label>
+                        <Label Content="Durchmesser:" Grid.Row="3" Grid.Column="0"></Label>
+                        <Label Grid.Column="1" Grid.Row="3" HorizontalContentAlignment="Center" FontWeight="Bold" 
+                               Content="{Binding ElementName=lv1, Path=SelectedItem.GetDurchmesser}"></Label>
+                        <Label Content="Einkaufspreis:" Grid.Row="4" Grid.Column="0"></Label>
+                        <Label Grid.Column="1" Grid.Row="4" HorizontalContentAlignment="Center" FontWeight="Bold" 
+                               Content="{Binding ElementName=lv1, Path=SelectedItem.GetPreis}"></Label>
+                        <Label Grid.Column="1" Grid.ColumnSpan="1" Grid.Row="5" HorizontalContentAlignment="Center" FontWeight="Bold" 
+                               Content="{Binding ElementName=lv1, Path=SelectedItem.GetBild}"></Label>
+                    </Grid>
+                    
+
                 </StackPanel>
             </Border>
         </Grid>
