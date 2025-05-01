@@ -8,12 +8,12 @@ namespace Schrauben_Schutte
 {
     class MetallSchraube : Schrauben
     {
-        public MetallSchraube(string name,string material,string laenge,string bild,double masse,double preis,string verdrillung,int nummer,double durchmesser) : base()
+        public MetallSchraube(string name,string material,string laenge,string bild,double preis, string lieferant,string verdrillung,int nummer,double durchmesser) : base()
         {
             schraubenName = name;
             schraubenMaterial = material;
             schraubenLaenge = laenge;
-            schraubenMasse = masse;
+            schraubenLieferant = lieferant;
             schraubenPreis = preis;
             schraubenBild = bild;
             schraubenVerdrillung = verdrillung;

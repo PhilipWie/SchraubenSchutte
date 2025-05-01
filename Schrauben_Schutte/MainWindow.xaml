@@ -8,8 +8,8 @@
         Title="MainWindow" Height="550" Width="900"
         ResizeMode="NoResize">
     <Window.Resources>
-        <local:ViewModel x:Key="vm1"></local:ViewModel>
-    </Window.Resources>
+        <local:ViewModel x:Key="vm1" d:IsDataSource="True"></local:ViewModel>
+    </Window.Resources> 
     
     <StackPanel DataContext="{Binding Source={StaticResource vm1}}">
         <StackPanel.Background>
@@ -29,7 +29,7 @@
                 <ColumnDefinition Width="500"></ColumnDefinition>
             </Grid.ColumnDefinitions>
             <Grid.RowDefinitions>
-                <RowDefinition Height="320"></RowDefinition>
+                <RowDefinition Height="340"></RowDefinition>
                 <RowDefinition Height="30"></RowDefinition>
             </Grid.RowDefinitions>
             <Border HorizontalAlignment="Center"  Grid.Row="0" Grid.Column="0" Margin="0,30,0,0" Background="White" Padding="5" 
@@ -56,7 +56,7 @@
                 BorderThickness="1px" BorderBrush="Black" CornerRadius="10"  Width="300px" Opacity="0.6" Cursor="Hand">
                 <StackPanel Grid.Row="0" x:Name="sp_infos" Grid.Column="1" HorizontalAlignment="Center" Background="#FF74A1C9">
                     <Label Template="{StaticResource header2}"/>
-                    <!-- Grid erstellen und Informationen in 2 colums einteilen wie Attribut: Attribut value -->
+                    
                     <Grid>
                         <Grid.ColumnDefinitions>
                             <ColumnDefinition></ColumnDefinition>
@@ -71,7 +71,7 @@
                             <RowDefinition></RowDefinition>
                             <RowDefinition></RowDefinition>
                             <RowDefinition></RowDefinition>
-                            <RowDefinition></RowDefinition>
+                            <RowDefinition Height="30"></RowDefinition>
                         </Grid.RowDefinitions>
                         <Label Content="Bezeichnung:" Grid.Column="0" Grid.Row="0"></Label>
                         <Label Grid.Column="1" Grid.Row="0" HorizontalContentAlignment="Center" FontWeight="Bold" 
@@ -88,8 +88,15 @@
                         <Label Content="Einkaufspreis:" Grid.Row="4" Grid.Column="0"></Label>
                         <Label Grid.Column="1" Grid.Row="4" HorizontalContentAlignment="Center" FontWeight="Bold" 
                                Content="{Binding ElementName=lv1, Path=SelectedItem.GetPreis}"></Label>
-                        <Label Grid.Column="1" Grid.ColumnSpan="1" Grid.Row="5" HorizontalContentAlignment="Center" FontWeight="Bold" 
-                               Content="{Binding ElementName=lv1, Path=SelectedItem.GetBild}"></Label>
+                        <Label Content="Lieferant:" Grid.Row="5" Grid.Column="0"></Label>
+                        <Label Grid.Column="1" Grid.Row="5" HorizontalContentAlignment="Center" FontWeight="Bold" 
+                               Content="{Binding ElementName=lv1, Path=SelectedItem.GetLieferant}"></Label>
+                        <Line Grid.Row="6" Grid.ColumnSpan="2" X1="0" Y1="0" X2="400" Y2="0" Stroke="Black" StrokeThickness="2" />
+                        <Button Grid.Column="0" Grid.Row="6" Grid.ColumnSpan="2" Background="Transparent" BorderThickness="0"
+        Command="{Binding OpenImageCommand}" CommandParameter="{Binding ElementName=lv1, Path=SelectedItem.GetBild}">
+                            <Image MaxHeight="80px" MaxWidth="500px" Source="{Binding ElementName=lv1, Path=SelectedItem.GetBild}" 
+           Stretch="Uniform" Cursor="Hand" Margin="0,5,0,5" />
+                        </Button>
                     </Grid>
                     
 
@@ -102,20 +109,20 @@
                 <Border.Effect>
                     <DropShadowEffect/>
                 </Border.Effect>
-                <Button Content="Speichern" Width="110px" Height="40px" FontSize="18" FontWeight="Bold" Background="#FFD4DDE5"></Button>
+                <Button Content="Speichern" Command="{Binding SpeichernCommand}" Width="110px" Height="40px" FontSize="18" FontWeight="Bold" Background="#FFD4DDE5"></Button>
             </Border>
 
             <Border Padding="4" Background="White" Margin="0px 0px 10px 0px" CornerRadius="8" BorderThickness="1px" BorderBrush="Black" ClipToBounds="False">
                 <Border.Effect>
                     <DropShadowEffect/>
                 </Border.Effect>
-                <Button Content="Löschen" Width="110px" Height="40px" FontSize="18" FontWeight="Bold" Background="#FFD4DDE5"></Button>
+                <Button Content="Löschen" Command="{Binding LöschenCommand}" Width="110px" Height="40px" FontSize="18" FontWeight="Bold" Background="#FFD4DDE5"></Button>
             </Border>
             <Border Padding="4" Background="White" Margin="0px 0px 10px 0px" CornerRadius="8" BorderThickness="1px" BorderBrush="Black" ClipToBounds="False">
                 <Border.Effect>
                     <DropShadowEffect/>
                 </Border.Effect>
-                <Button Content="Hinzufügen" Width="110px" Height="40px" FontSize="18" FontWeight="Bold" Background="#FFD4DDE5"></Button>
+                <Button Content="Hinzufügen" Command="{Binding HinzufügenCommand}" Width="110px" Height="40px" FontSize="18" FontWeight="Bold" Background="#FFD4DDE5"></Button>
             </Border>
         </StackPanel>
     </StackPanel>
